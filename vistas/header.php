@@ -29,7 +29,7 @@
  
                     <!--VISTAS DEL ADMINISTRADOR-->
                     <li class="nav-item">
-                        <a class="nav-link" href="git add .">Usuarios</a>
+                        <a class="nav-link" href="usuarios.php">Usuarios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="asignacion.php">Asignacion</a>
@@ -48,7 +48,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Editar Datos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>
+                            <a class="dropdown-item" href="#">Salir</a>
                         </div>
                     </li>
                 </ul>

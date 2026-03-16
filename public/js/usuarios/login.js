@@ -1,6 +1,6 @@
 function loginUsuario(){
     $.ajax({
-        tyype:"POST",
+        type:"POST",
         data:$('#frmLogin').serialize(),
         url:"procesos/usuarios/login/loginUsuario.php",
         success:function(respuesta){

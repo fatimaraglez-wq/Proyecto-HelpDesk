@@ -1,3 +1,15 @@
+<?php
+// Inicia sesión solo si no hay ninguna activa
+    if (session_status() == PHP_SESSION_NONE) {
+     session_start();
+    }
+
+// Asegura que $_SESSION['usuario'] exista
+    if(!isset($_SESSION['usuario'])){
+        $_SESSION['usuario'] = ['nombre' => ''];
+    }
+?>  
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +21,7 @@
 </head>
 <body>
     <!-- Navigation -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
         <div class="container">
             <a class="navbar-brand" href="inicio.php">Help - Desk</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,14 +32,16 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="inicio.php">Inicio</a>
                     </li>
+                   <?php if ($_SESSION['usuario']['rol'==1]) { ?> 
                     <li class="nav-item">
                         <a class="nav-link" href="misDispositivos.php">Mis dispositivos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="misReportes.php">Reportes Soporte</a>
                     </li>
- 
-                    <!--VISTAS DEL ADMINISTRADOR-->
+                    <?php } else if($_SESSION['usuario']['rol'] == 2){ ?>
+
+                    <!-- VISTAS DEL ADMINISTRADOR -->
                     <li class="nav-item">
                         <a class="nav-link" href="usuarios.php">Usuarios</a>
                     </li>
@@ -37,18 +51,17 @@
                     <li class="nav-item">
                         <a class="nav-link" href="reportes.php">Reportes</a>
                     </li>
-
-                    </li>
+                    <?php }?>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Usuario
+                        <a style="color:red" class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Usuario cliente: <?php echo $_SESSION['usuario']['nombre']; ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="#">Editar Datos</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Salir</a>
+                            <a class="dropdown-item" href="../procesos/usuarios/login/salir.php">Salir</a>
                         </div>
                     </li>
                 </ul>

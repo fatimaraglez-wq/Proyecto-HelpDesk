@@ -1,4 +1,11 @@
-<?php include "header.php";?>
+<?php 
+   
+    include "header.php";
+    if (isset($_SESSION['usuario']) && 
+        $_SESSION['usuario']['rol'] == 2) {
+
+    
+?>
 <!-- Page Content -->
     <div class="container">
         <div class="card border-0 shadow my-5">
@@ -7,4 +14,10 @@
             <p class="lead">Content on the pague</p>
         </div>
     </div>
- <?php include "footer.php" ?>
+  <?php 
+    include "footer.php";
+    } else {
+        header("location:../inde.html");
+
+    }
+ ?>

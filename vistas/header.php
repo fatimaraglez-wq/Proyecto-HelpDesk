@@ -103,6 +103,4 @@
         </div>
     </nav>
 
-    <?php
-        include "inicio/modalActualizarDatosPersonales.php";
-    ?>
+   

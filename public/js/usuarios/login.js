@@ -1,14 +1,15 @@
 function loginUsuario(){
+    //alert("Funciona correctamente");
     $.ajax({
-        type:"POST",
+        type: "POST",
         data:$('#frmLogin').serialize(),
-        url:"procesos/usuarios/login/loginUsuario.php",
+        url: "procesos/usuarios/login/loginUsuario.php",
         success:function(respuesta){
             respuesta = respuesta.trim();
-            if (respuesta == 1){
+            if(respuesta == 1) {
                 window.location.href = "vistas/inicio.php";
-            }else{
-                Swal.fire(":(","Error al entrar" + respuesta,"error")
+            } else {
+                Swal.fire(":(","Error al entrar" + respuesta,"error ");
             }
 
         }

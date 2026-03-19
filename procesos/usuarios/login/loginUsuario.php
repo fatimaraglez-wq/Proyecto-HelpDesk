@@ -1,15 +1,11 @@
 <?php
+
     session_start();
+    $usuario = $_POST['login'];
+    $password = sha1($_POST['password']);
 
-        //$usuario = isset($_POST['login']) ? $_POST['login'] : "";
-        //$password = isset($_POST['password']) ? $_POST['password'] : "";
+    include "../../../clases/Usuarios.php";
+    $Usuarios = new Usuarios();
 
-        $usuario = $_POST['login']; 
-        $password = $_POST['password'];
-
-        include "../../../clases/Usuarios.php";
-
-        $Usuarios = new Usuarios();
-        echo $Usuarios->loginUsuario($usuario, $password);
-
+    echo $Usuarios->loginUsuario($usuario, $password);
 ?>
